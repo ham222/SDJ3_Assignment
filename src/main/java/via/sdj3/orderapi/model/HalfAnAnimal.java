@@ -1,4 +1,4 @@
-package model;
+package via.sdj3.orderapi.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,7 +1,6 @@
-package model;
+package via.sdj3.orderapi.model;
 
 import java.util.Date;
-import java.util.HashMap;
 
 public class Animal {
 

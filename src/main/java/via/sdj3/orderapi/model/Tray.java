@@ -1,4 +1,4 @@
-package model;
+package via.sdj3.orderapi.model;
 
 public class Tray
 {

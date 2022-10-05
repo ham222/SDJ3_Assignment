@@ -10,7 +10,7 @@ import via.sdj3.orderapi.repository.AnimalRepository;
 @RequestMapping
 public class RestApiController
 {
-    AnimalRepository animalRepository = new AnimalRepository();
+    AnimalRepository animalRepository = AnimalRepository.getInstance();
     @PostMapping("/animal/") // C endpoint
     public String createOrder()
     {
@@ -18,8 +18,21 @@ public class RestApiController
         return "HTTP POST - Create";
     }
 
-    @GetMapping (produces = MediaType.APPLICATION_JSON_VALUE)// R endpoint
+
+
+    // Get all animals
+    @GetMapping ("/animal/")// R endpoint
     public String getAllAnimals()
+    {
+        System.out.println("\n [Backend - Server] read operation is reached");
+        String s = new Gson().toJson(animalRepository.getAnimals());
+        return s;
+    }
+
+
+    // Get animal by id
+    @GetMapping ("//")// R endpoint
+    public String getAnimalById(@RequestParam int id)
     {
         System.out.println("\n [Backend - Server] read operation is reached");
         String s = new Gson().toJson(animalRepository.getAnimals());

@@ -13,21 +13,35 @@ public class AnimalRepository
     private static final ArrayList<Animal> animals = new ArrayList<>();
     private static AnimalRepository instance;
 
-    static {
-        initDataSource();
+    public static AnimalRepository getInstance()
+    {
+        if (instance == null)
+        {
+            instance = new AnimalRepository();
+
+        }
+        return instance;
     }
 
-    public AnimalRepository(){
 
-    }
+//    static {
+//        initDataSource();
+//    }
 
-    private static void initDataSource() {
+    private AnimalRepository(){
         addAnimal(new Animal( 23, new Date(22, 05,4), "New York"));
         addAnimal(new Animal(23, new Date(2022, 05,4), "New York"));
         addAnimal(new Animal(23, new Date(2022, 05,4), "New York"));
         addAnimal(new Animal(23, new Date(2022, 05,4), "New York"));
-
     }
+
+//    private static void initDataSource() {
+//        addAnimal(new Animal( 23, new Date(22, 05,4), "New York"));
+//        addAnimal(new Animal(23, new Date(2022, 05,4), "New York"));
+//        addAnimal(new Animal(23, new Date(2022, 05,4), "New York"));
+//        addAnimal(new Animal(23, new Date(2022, 05,4), "New York"));
+//
+//    }
 
     public static void addAnimal(Animal animal)
     {

@@ -18,36 +18,26 @@ public class AnimalRepository
         if (instance == null)
         {
             instance = new AnimalRepository();
+            addAnimal(new Animal( 23, new Date(2022-1900, 5-1,4), "Boston"));
+            addAnimal(new Animal(23, new Date(2022-1900, 5-1,4), "Horsens"));
+            addAnimal(new Animal(23, new Date(2022-1900, 5-1,4), "Arhus"));
+            addAnimal(new Animal(23, new Date(2022-1900, 5-1,4), "Ciocana"));
 
         }
         return instance;
     }
 
 
-//    static {
-//        initDataSource();
-//    }
-
     private AnimalRepository(){
-        addAnimal(new Animal( 23, new Date(22, 05,4), "New York"));
-        addAnimal(new Animal(23, new Date(2022, 05,4), "New York"));
-        addAnimal(new Animal(23, new Date(2022, 05,4), "New York"));
-        addAnimal(new Animal(23, new Date(2022, 05,4), "New York"));
     }
 
-//    private static void initDataSource() {
-//        addAnimal(new Animal( 23, new Date(22, 05,4), "New York"));
-//        addAnimal(new Animal(23, new Date(2022, 05,4), "New York"));
-//        addAnimal(new Animal(23, new Date(2022, 05,4), "New York"));
-//        addAnimal(new Animal(23, new Date(2022, 05,4), "New York"));
-//
-//    }
 
     public static void addAnimal(Animal animal)
     {
         animals.add(animal);
         animals.get(animals.indexOf(animal)).setId(animals.indexOf(animal));
     }
+
     public Animal getAnimal(int id)
     {
         return animals.get(id);
@@ -56,4 +46,29 @@ public class AnimalRepository
     public ArrayList<Animal> getAnimals() {
         return animals;
     }
+
+    public ArrayList<Animal> getAllAnimalsByDate(Date date)
+    {
+        ArrayList<Animal> x = new ArrayList<>();
+        for (Animal animal : animals) {
+            if (animal.getDateDelivered().equals(date));
+            {
+                x.add(animal);
+            }
+        }
+        return x;
+    }
+
+    public ArrayList<Animal> getAllAnimalsByLocation(String location)
+    {
+        ArrayList<Animal> x = new ArrayList<>();
+        for (Animal animal : animals) {
+            if (animal.getOrigin().equals(location))
+            {
+                x.add(animal);
+            }
+        }
+        return x;
+    }
+
 }

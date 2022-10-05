@@ -31,8 +31,8 @@ public class RestApiController
 
 
     // Get animal by id
-    @GetMapping ("//")// R endpoint
-    public String getAnimalById(@RequestParam int id)
+    @GetMapping ("/aniaml/{id}")// R endpoint
+    public String getAnimalById(@PathVariable int id)
     {
         System.out.println("\n [Backend - Server] read operation is reached");
         String s = new Gson().toJson(animalRepository.getAnimals());
